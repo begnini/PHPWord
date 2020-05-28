@@ -252,6 +252,7 @@ abstract class AbstractPart
             $endnote->setRelationId($wId);
         } elseif ($node->nodeName == 'w:pict') {
             // Image
+            $xmlReader->registerNamespace('v', 'urn:schemas-microsoft-com:vml');
             $rId = $xmlReader->getAttribute('r:id', $node, 'v:shape/v:imagedata');
             $target = $this->getMediaTarget($docPart, $rId);
             if (!is_null($target)) {
