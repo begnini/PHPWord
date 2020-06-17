@@ -432,6 +432,7 @@ abstract class AbstractPart
             'hanging'             => array(self::READ_VALUE, 'w:ind', 'w:hanging'),
             'spaceAfter'          => array(self::READ_VALUE, 'w:spacing', 'w:after'),
             'spaceBefore'         => array(self::READ_VALUE, 'w:spacing', 'w:before'),
+            'lineHeight'          => array(self::READ_VALUE, 'w:spacing', 'w:line'),
             'widowControl'        => array(self::READ_FALSE, 'w:widowControl'),
             'keepNext'            => array(self::READ_TRUE,  'w:keepNext'),
             'keepLines'           => array(self::READ_TRUE,  'w:keepLines'),
@@ -596,7 +597,7 @@ abstract class AbstractPart
             'valign'        => array(self::READ_VALUE, 'w:vAlign'),
             'textDirection' => array(self::READ_VALUE, 'w:textDirection'),
             'gridSpan'      => array(self::READ_VALUE, 'w:gridSpan'),
-            'vMerge'        => array(self::READ_VALUE, 'w:vMerge'),
+            'vMerge'        => array(self::READ_VALUE, 'w:vMerge', 'w:val', 'continue'),
             'bgColor'       => array(self::READ_VALUE, 'w:shd', 'w:fill'),
         );
 
