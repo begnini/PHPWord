@@ -78,16 +78,15 @@ class Styles extends AbstractPart
                         $fontStyle = $this->readFontStyle($xmlReader, $node);
                         if (!empty($headingMatches)) {
                             $phpWord->addTitleStyle($headingMatches[1], $fontStyle, $paragraphStyle);
-                        } else {
-                            if (empty($fontStyle)) {
-                                if (is_array($paragraphStyle)) {
-                                    $phpWord->addParagraphStyle($id, $paragraphStyle);
-                                    $phpWord->addParagraphStyle($name, $paragraphStyle);
-                                }
-                            } else {
-                                $phpWord->addFontStyle($id, $fontStyle, $paragraphStyle);
-                                $phpWord->addFontStyle($name, $fontStyle, $paragraphStyle);
+                        }
+                        if (empty($fontStyle)) {
+                            if (is_array($paragraphStyle)) {
+                                $phpWord->addParagraphStyle($id, $paragraphStyle);
+                                $phpWord->addParagraphStyle($name, $paragraphStyle);
                             }
+                        } else {
+                            $phpWord->addFontStyle($id, $fontStyle, $paragraphStyle);
+                            $phpWord->addFontStyle($name, $fontStyle, $paragraphStyle);
                         }
                         break;
                     case 'character':
