@@ -67,7 +67,11 @@ class Numbering extends AbstractPart
             foreach ($nodes as $node) {
                 $numId = $xmlReader->getAttribute('w:numId', $node);
                 $abstractId = $xmlReader->getAttribute('w:val', $node, 'w:abstractNumId');
-                $numberings[$numId] = $abstracts[$abstractId];
+                if (isset($abstracts[$abstractId])) {
+                    $numberings[$numId] = $abstracts[$abstractId];
+                } else {
+                    $numberings[$numId] = array();
+                }
                 $numberings[$numId]['numId'] = $numId;
                 $subnodes = $xmlReader->getElements('w:lvlOverride/w:lvl', $node);
                 foreach ($subnodes as $subnode) {
