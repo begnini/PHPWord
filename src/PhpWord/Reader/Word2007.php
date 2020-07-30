@@ -69,7 +69,7 @@ class Word2007 extends AbstractReader implements ReaderInterface
                 $relType = $relItem['type'];
                 if (isset($stepItems[$relType])) {
                     $partName = $stepItems[$relType];
-                    $xmlFile = $relItem['target'];
+                    $xmlFile = ltrim($relItem['target'], '/');
                     $this->readPart($phpWord, $relationships, $partName, $docFile, $xmlFile);
                 }
             }
