@@ -125,7 +125,7 @@ abstract class AbstractPart
                     $fldCharType = $xmlReader->getAttribute('w:fldCharType', $node, 'w:fldChar');
                     if ('begin' == $fldCharType) {
                         $ignoreText = true;
-                    } elseif ('end' == $fldCharType) {
+                    } elseif ('end' == $fldCharType || 'separate' == $fldCharType) {
                         $ignoreText = false;
                     }
                 }
